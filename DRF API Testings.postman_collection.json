@@ -1,0 +1,1204 @@
+{
+	"info": {
+		"_postman_id": "f99a20a1-e1f7-404b-9e50-93a6f8a7ccde",
+		"name": "DRF API Testings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth User token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Sadiq",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "@aS123456",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api-token-auth/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api-token-auth",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Admin token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "@aS123456",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "tahir",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api-token-auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api-token-auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 06:24:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"f874a6d2bb06c382e9983a1d7768fe84c188aa40\"\n}"
+				},
+				{
+					"name": "Non Admin token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "@aS123456",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "Sadiq",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api-token-auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api-token-auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 08:11:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"4bac305994babba3ba7854eab2ba7a75c507f5ec\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Feting Users by Auth UserFeting Users by Admin User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"shipped\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Orders Fetching by Admin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token f874a6d2bb06c382e9983a1d7768fe84c188aa40",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Adviser\",\r\n        \"total_price\": \"55.00\",\r\n        \"order_status\": \"cancelled\",\r\n        \"is_paid\": false,\r\n        \"payment_method\": \"Cash\",\r\n        \"shipping_address\": \"Lajhore\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 06:25:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1034"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"order_number\": 1,\n        \"order_name\": \"Functional\",\n        \"total_price\": \"55.00\",\n        \"created_at\": \"2023-02-18T08:37:35.230622Z\",\n        \"updated_at\": \"2023-02-22T04:06:06.484337Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"Karachi\",\n        \"order_status\": \"cancelled\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 2,\n        \"order_name\": \"laptop\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"updated_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 3,\n        \"order_name\": \"shifting\",\n        \"total_price\": \"15.00\",\n        \"created_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"updated_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 5,\n        \"order_name\": \"helmet\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"updated_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    }\n]"
+				},
+				{
+					"name": "Order Creation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 4bac305994babba3ba7854eab2ba7a75c507f5ec",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"cancelled\",\r\n        \"is_paid\": false,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 06:37:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "256"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"order_number\": 10,\n    \"order_name\": \"Riding\",\n    \"total_price\": \"75.00\",\n    \"created_at\": \"2023-02-22T06:37:55.345721Z\",\n    \"updated_at\": \"2023-02-22T06:37:55.345721Z\",\n    \"is_paid\": false,\n    \"payment_method\": \"Online\",\n    \"shipping_address\": \"Sialkot\",\n    \"order_status\": \"cancelled\",\n    \"user\": 3\n}"
+				},
+				{
+					"name": "Order Update wrt Owner",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 4bac305994babba3ba7854eab2ba7a75c507f5ec",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"shipped\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/orders/10/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"10",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 06:40:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "253"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"order_number\": 10,\n    \"order_name\": \"Riding\",\n    \"total_price\": \"75.00\",\n    \"created_at\": \"2023-02-22T06:37:55.345721Z\",\n    \"updated_at\": \"2023-02-22T06:40:14.844854Z\",\n    \"is_paid\": true,\n    \"payment_method\": \"Online\",\n    \"shipping_address\": \"Sialkot\",\n    \"order_status\": \"shipped\",\n    \"user\": 3\n}"
+				},
+				{
+					"name": "Admin Accessing Orders API Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"shipped\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 06:44:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1800"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"order_number\": 1,\n        \"order_name\": \"Functional\",\n        \"total_price\": \"55.00\",\n        \"created_at\": \"2023-02-18T08:37:35.230622Z\",\n        \"updated_at\": \"2023-02-22T04:06:06.484337Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"Karachi\",\n        \"order_status\": \"cancelled\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 2,\n        \"order_name\": \"laptop\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"updated_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 3,\n        \"order_name\": \"shifting\",\n        \"total_price\": \"15.00\",\n        \"created_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"updated_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 5,\n        \"order_name\": \"helmet\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"updated_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 8,\n        \"order_name\": \"Gambling\",\n        \"total_price\": \"55.00\",\n        \"created_at\": \"2023-02-22T06:30:37.664484Z\",\n        \"updated_at\": \"2023-02-22T06:30:37.665476Z\",\n        \"is_paid\": false,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"Lajhore\",\n        \"order_status\": \"cancelled\",\n        \"user\": 4\n    },\n    {\n        \"order_number\": 9,\n        \"order_name\": \"Gambling\",\n        \"total_price\": \"55.00\",\n        \"created_at\": \"2023-02-22T06:35:47.585998Z\",\n        \"updated_at\": \"2023-02-22T06:35:47.589044Z\",\n        \"is_paid\": false,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"Lajhore\",\n        \"order_status\": \"cancelled\",\n        \"user\": 4\n    },\n    {\n        \"order_number\": 10,\n        \"order_name\": \"Riding\",\n        \"total_price\": \"75.00\",\n        \"created_at\": \"2023-02-22T06:37:55.345721Z\",\n        \"updated_at\": \"2023-02-22T06:40:14.844854Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Online\",\n        \"shipping_address\": \"Sialkot\",\n        \"order_status\": \"shipped\",\n        \"user\": 3\n    }\n]"
+				},
+				{
+					"name": "Order Deletion by Admin",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"shipped\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/orders/9/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"orders",
+								"9",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 07:24:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Feting Users by Auth User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 4bac305994babba3ba7854eab2ba7a75c507f5ec",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_name\": \"Riding\",\r\n        \"total_price\": \"75.00\",\r\n        \"order_status\": \"shipped\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Online\",\r\n        \"shipping_address\": \"Sialkot\",\r\n        \"user\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 07:28:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"You do not have permission to perform this action.\"\n}"
+				},
+				{
+					"name": "User Creation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"username\": \"Zaid\",\r\n        \"email\": \"zaidhaq@gmail.com\",\r\n        \"first_name\": \"zaid\",\r\n        \"last_name\": \"haq\",\r\n        \"is_staff\": true,\r\n        \"is_superuser\": false,\r\n        \"password\": \"@aS123456\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 07:38:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "173"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"username\": \"Zaid\",\n    \"email\": \"zaidhaq@gmail.com\",\n    \"first_name\": \"zaid\",\n    \"last_name\": \"haq\",\n    \"is_staff\": true,\n    \"is_superuser\": false,\n    \"date_joined\": \"2023-02-22T07:38:04.827828Z\"\n}"
+				},
+				{
+					"name": "User Update by Admin",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"username\": \"Zaid\",\r\n        \"email\": \"zaidhaque@gmail.com\",\r\n        \"first_name\": \"zaid\",\r\n        \"last_name\": \"haque\",\r\n        \"is_staff\": true,\r\n        \"is_superuser\": false,\r\n        \"password\": \"@aS1234567\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/6/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"6",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 07:39:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "177"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"username\": \"Zaid\",\n    \"email\": \"zaidhaque@gmail.com\",\n    \"first_name\": \"zaid\",\n    \"last_name\": \"haque\",\n    \"is_staff\": true,\n    \"is_superuser\": false,\n    \"date_joined\": \"2023-02-22T07:38:04.827828Z\"\n}"
+				},
+				{
+					"name": "Deleting User by Admin",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"username\": \"Zaid\",\r\n        \"email\": \"zaidhaque@gmail.com\",\r\n        \"first_name\": \"zaid\",\r\n        \"last_name\": \"haque\",\r\n        \"is_staff\": true,\r\n        \"is_superuser\": false,\r\n        \"password\": \"@aS123456\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 08:12:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://127.0.0.1:8000/orders/2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user-emails-list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user-emails-list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/order-list-by-user-email?email=mghufranazim@gmail.com, ghufran@gmail.com, skhan@gmail.com",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "mghufranazim@gmail.com, ghufran@gmail.com, skhan@gmail.com",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/order-list-by-user-email?email=mghufranazim@gmail.com, ghufran@gmail.com, skhan@gmail.com",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"order-list-by-user-email"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "mghufranazim@gmail.com, ghufran@gmail.com, skhan@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Orders by list of emails for Admin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"order_number\": 1,\r\n        \"order_name\": \"Functional\",\r\n        \"total_price\": \"55.00\",\r\n        \"created_at\": \"2023-02-18T08:37:35.230622Z\",\r\n        \"updated_at\": \"2023-02-22T04:06:06.484337Z\",\r\n        \"is_paid\": true,\r\n        \"payment_method\": \"Cash\",\r\n        \"shipping_address\": \"Karachi\",\r\n        \"order_status\": \"cancelled\",\r\n        \"user\": 2\r\n    }"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/order-list-by-user-email?email=ghufran@gmail.com, skhan@gmail.com, tahirkazmi@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"order-list-by-user-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ghufran@gmail.com, skhan@gmail.com, tahirkazmi@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 08:07:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1034"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"order_number\": 1,\n        \"order_name\": \"Functional\",\n        \"total_price\": \"55.00\",\n        \"created_at\": \"2023-02-18T08:37:35.230622Z\",\n        \"updated_at\": \"2023-02-22T04:06:06.484337Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"Karachi\",\n        \"order_status\": \"cancelled\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 2,\n        \"order_name\": \"laptop\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"updated_at\": \"2023-02-18T08:41:37.465140Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 3,\n        \"order_name\": \"shifting\",\n        \"total_price\": \"15.00\",\n        \"created_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"updated_at\": \"2023-02-18T08:42:52.995982Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"Cash\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    },\n    {\n        \"order_number\": 5,\n        \"order_name\": \"helmet\",\n        \"total_price\": \"250.00\",\n        \"created_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"updated_at\": \"2023-02-18T12:03:29.466829Z\",\n        \"is_paid\": true,\n        \"payment_method\": \"online\",\n        \"shipping_address\": \"scheme 33\",\n        \"order_status\": \"processing\",\n        \"user\": 2\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Orders linked email addresses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 68dfe7d38a856c1a248918fd61b562109cd1f8c5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user-emails-list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user-emails-list",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

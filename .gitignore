@@ -1,0 +1,28 @@
+# Django-related files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# IDE Files
+.vscode
+
+# Static files
+staticfiles/
+node_modules/
+
+# Media files
+media/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Miscellaneous
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
